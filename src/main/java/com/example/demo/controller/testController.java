@@ -14,6 +14,6 @@ public class testController {
     @CrossOrigin("*")
     @RequestMapping("/getMsg")
     public String getMsg(){
-        return "logged in sucessfully" ;
+        return "logged in sucessfully happy now" ;
     }
 }

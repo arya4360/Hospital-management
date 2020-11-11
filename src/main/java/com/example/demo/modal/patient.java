@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.lang.NonNull;
 import javax.persistence.*;
 import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -14,7 +16,7 @@ public class patient {
     @Column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id ;
+    private int id ;
 
     @Column
     @NotNull
@@ -33,7 +35,7 @@ public class patient {
     private String firstName;
     @Column
     @NotNull
-    private String LastName;
+    private String lastName;
     @Column
     private String city;
     @Column
@@ -49,17 +51,21 @@ public class patient {
     @NotNull
     private String dob;
 
-    private String role = "patient";
+    private String role = "PATIENT";
+    private boolean verify = false;
+
+    public boolean isVerify() {
+        return verify;
+    }
+
+    public void setVerify(boolean verify) {
+        this.verify = verify;
+    }
 
     public String getRole() {
         return role;
     }
 
-    //    @Column
-//    private boolean enabled;
-
-//    @Column
-//    private String confirmationToken;
 
     public String getDob() {
         return dob;
@@ -90,7 +96,7 @@ public class patient {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setFirstName(@NonNull String firstName) {
@@ -106,7 +112,7 @@ public class patient {
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public void setState(String state) {
@@ -118,7 +124,7 @@ public class patient {
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setUsername(String username) {
